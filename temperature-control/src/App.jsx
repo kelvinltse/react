@@ -4,45 +4,37 @@ import './App.css'
 export default function App() {
   return (
     <main>
-      <Counter />
+      <Thermostat />
     </main>
   )
 }
 
-class Counter extends Component {
+class Thermostat extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 0
+      temperature: 65,
     };
   }
 
-  changeCounter(button) {
-    var count = this.state.count;
-    if (button == "plus") {
-      count++;
-    } else {
-      count--;
-    }
-    this.setState({count: count});   
+  increase = () => {
+    this.setState({ temperature: this.state.temperature + 1 });
+  }
+
+  decrease = () => {
+    this.setState({ temperature: this.state.temperature - 1 });
   }
 
   render() {
     return (
-      <div>
-        Current Count: {this.state.count}
-        <Button direction="+" onBoop = {() => this.changeCounter("plus")}/>
-        <Button direction="-"onBoop = {() => this.changeCounter("minus")}/>
+      <div className='thermostatUI'>
+        <div className='temp'>
+          {this.state.temperature} &#176;F
+        </div>
+        <button onClick={this.increase}>+</button>
+        <button onClick={this.decrease}>-</button>
       </div>
     );
   }
-}
 
-class Button extends Component {
-  render(props) {
-    return (
-      <button onClick = {this.props.onBoop}>{this.props.direction}</button>
-    )
-  }
 }
-
