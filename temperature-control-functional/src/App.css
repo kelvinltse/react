@@ -1,0 +1,20 @@
+
+.thermostatUI {
+  margin: auto;
+  text-align: center;
+  background-color: purple;
+  width: 50%;
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.temp {
+  color: white;
+  font-size: 100px; 
+}
+
+.button {
+  border: white;
+  background-color: gray;
+  font-size: 30px;
+}
