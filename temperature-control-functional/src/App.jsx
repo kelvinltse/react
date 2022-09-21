@@ -3,13 +3,7 @@ import './App.css'
 
 export default function App() {
 //function App() {
-
-//set state with const
-  const [temperature, setTemperature] = useState(65);
-  const [thermStyle, setThermStyle] = useState({backgroundColor: '#000000'}); //issue is here - cannot set default state with variable?
-  //const [thermStyle, setThermStyle] = useState(() => ({backgroundColor: tempColors.sixty}));
-
-  const tempColors = { //background colors as const
+  const tempColors = { //background colors as const 
     hundred: '#de0000',
     ninety: '#e7001f',
     eighty: '#ee0036',
@@ -22,11 +16,13 @@ export default function App() {
     ten: '#0000ff',
     zero: '#000000',
   };
+//set state with const
+  const [temperature, setTemperature] = useState(65);
+  const [thermStyle, setThermStyle] = useState({backgroundColor: tempColors.sixty}); //tempColors needed to be initialized first to be used in initial state
 
-  function setColor() {  //background colors as const
-    let temp = temperature;
 
-    //this.setState -> setThermStyle({backgroundColor: tempColors.zero})
+  function setColor(temp) {  //background colors as const
+
     if (temp < 10) {setThermStyle({backgroundColor: tempColors.zero});} else 
     if (temp < 20) {setThermStyle({backgroundColor: tempColors.ten});} else 
     if (temp < 30) {setThermStyle({backgroundColor: tempColors.twenty});} else 
@@ -40,16 +36,19 @@ export default function App() {
     {setThermStyle({backgroundColor: tempColors.hundred});} 
   }
 
-  function decrease() {
-    setTemperature(temperature - 1);
-    setColor();
+  function decrease() { //solve for async state updates by having newTemp and setting color based on it
+    const newTemp = temperature - 1;
+    setTemperature(newTemp);
+    setColor(newTemp);
   }
 
   function increase() {
-    setTemperature(temperature + 1);
-    setColor();
+    const newTemp = temperature + 1;
+    setTemperature(newTemp);
+    setColor(newTemp);
     //this.setState({ temperature: this.state.temperature + 1 }, this.setColor); //solves for async setState by passing setColor as callback
   }
+
 
   return ( //return the render here
     <div className='thermostatUI' style={thermStyle}> 
@@ -61,17 +60,4 @@ export default function App() {
     </div>
     //<button>test??</button>
   );
-
-// class Thermostat extends Component { //delete class entirely
-//   constructor(props) { 
-//     super(props);
-//     this.state = {
-//       temperature: 65,
-//       thermStyle: {
-//         backgroundColor: tempColors.sixty
-//       }
-//     };
-//   }
-
-
 }
