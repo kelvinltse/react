@@ -5,15 +5,15 @@ export default function App() {
 
 
 
-  const [submitted, setSubmitted] = useState();
+  const [submitted, setSubmitted] = useState(false);
 
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
-  const [email, setEmail] = useState();
+  const [firstName, setFirstName] = useState(null);
+  const [lastName, setLastName] = useState(null);
+  const [email, setEmail] = useState(null);
 
   function handleSubmit(event) {
+    event.preventDefault(); //prevents the 'default' which is to submit the form which allows us to check success 
     setSubmitted(true);
-    alert('submitted!');
   }
 
   function handleFirstNameChange(event) {
@@ -32,8 +32,7 @@ export default function App() {
     <div class="form-container">
       <form class="register-form" onSubmit={handleSubmit}>
         {/* Uncomment the next line to show the success message */}
-        {/* submitted doesn't seem to be checking as true */}
-        {submitted ? <div class="success-message">Success! Thank you for registering</div> : null } 
+        {submitted && firstName && lastName && email ? <div class="success-message">Success! Thank you for registering</div> : null } 
         <input
           onChange={handleFirstNameChange}
           id="first-name"
@@ -43,7 +42,7 @@ export default function App() {
           name="firstName"
         />
         {/* Uncomment the next line to show the error message */}
-        {/* <span id="first-name-error">Please enter a first name</span> */}
+        {submitted && (firstName === null) ? <span id="first-name-error">Please enter a first name</span> : null}
         <input
           onChange={handleLastNameChange}
           id="last-name"
@@ -53,7 +52,7 @@ export default function App() {
           name="lastName"
         />
         {/* Uncomment the next line to show the error message */}
-        {/* <span id="last-name-error">Please enter a last name</span> */}
+        {submitted && (lastName === null) ? <span id="last-name-error">Please enter a last name</span> : null }
         <input
           onChange={handleEmailChange}
           id="email"
@@ -63,7 +62,7 @@ export default function App() {
           name="email"
         />
         {/* Uncomment the next line to show the error message */}
-        {/* <span id="email-error">Please enter an email address</span> */} 
+        {submitted && (email === null) ? <span id="email-error">Please enter an email address</span> : null } 
         <button class="form-field" type="submit">
           Register
         </button>
