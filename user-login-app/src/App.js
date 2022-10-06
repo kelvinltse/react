@@ -1,6 +1,7 @@
 
 import './App.css';
 import LoginButton from './LoginButton';
+import LogoutButton from './LogoutButton';
 
 export default function App() {
 
@@ -8,6 +9,7 @@ export default function App() {
     <div className="App">
      ayyy
      <LoginButton />
+     <LogoutButton />
     </div>
   );
 }

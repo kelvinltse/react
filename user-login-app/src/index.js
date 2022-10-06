@@ -11,7 +11,7 @@ root.render(
       clientId="iXBEmYgMIHEva2AKuj0bRdKtkJM1W5ia"
       redirectUri={window.location.origin}
       //redirectUri="http://localhost:3000"
-  >
+    >
     <App />
     </Auth0Provider>
   </React.StrictMode>
