@@ -6,11 +6,12 @@ import Profile from './components/Profile';
 
 export default function App() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
 
   return (
     <div className="App">
-     ayyy
+     <h1>WELCOME TO MY LOGIN APP. I AM SIMPLE APP. CLICKY CLICK.</h1>
+     <br></br>
      <LoginButton />
      <LogoutButton />
      <Profile />
