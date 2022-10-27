@@ -1,24 +1,24 @@
 import React from "react";
 
-const Form = (props) => {
+const Form = ( {setInputText, setTodos, todos, inputText}) => { //doing this is the equivalent of passing props in and not forcing you to call props each time below
 
     const inputTextHandler = (e) => {
-        console.log(e.target.value);
-        props.setInputText(e.target.value);
+        setInputText(e.target.value);
     }
 
     const submitHandler = (e) => {
         console.log("heey");
         e.preventDefault();
-        props.setTodos([
-            ...props.todos, {text: props.inputText, completed: false, id: Math.random() * 1000}
-        ])
+        setTodos([
+            ...todos, {text: inputText, completed: false, id: Math.random() * 1000}
+        ]);
+        setInputText("");
+        console.log(todos);
     }
 
     return (
         <form onSubmit={submitHandler}>
-            <input onChange={inputTextHandler} className="todo-input" />
-            {/* onClick handler on button instead of onSubmit on Form? */}
+            <input value={inputText} onChange={inputTextHandler} className="todo-input" />
             <button className="todo-button" type="submit"> 
                 <i className="fas fa-plus-square"></i>
             </button>
