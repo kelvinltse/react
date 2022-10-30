@@ -1,30 +1,16 @@
 import React from "react";
-import Todo from "./components/Todo";
+import Todo from "./Todo";
 
-const TodoList = ({todos}) => {
+const TodoList = ( {todos} ) => {
 
-    todos.forEach(renderToDoList);
-
-    function renderToDoList(todos) {
-        return (
-            <div className="todo-container">
-                <ul className="todo-list">
-                    {todos.text}
-                </ul>
-            </div>
-        )
+    return (
         
-    }
-
-
-    // return (
-        
-    //     <div className="todo-container">
-    //         <ul className="todo-list">
-    //             <Todo/>
-    //         </ul>
-    //     </div>
-    // )
+        <div className="todo-container">
+            <ul className="todo-list">
+                <Todo todos = {todos}/>
+            </ul>
+        </div>
+    )
 }
 
 export default TodoList;

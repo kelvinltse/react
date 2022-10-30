@@ -14,6 +14,7 @@ const Form = ( {setInputText, setTodos, todos, inputText}) => { //doing this is 
         ]);
         setInputText("");
         console.log(todos);
+        console.log("todos length " + todos.length);
     }
 
     return (
