@@ -7,10 +7,12 @@ const TodoList = ( {todos} ) => {
         
         <div className="todo-container">
             <ul className="todo-list">
-                <Todo todos = {todos}/>
+                {todos.map(todo => (
+                    <Todo key = {todo.id} text = {todo.text}/>
+                ))}
             </ul>
         </div>
     )
 }
 
-export default TodoList;
+export default TodoList; 

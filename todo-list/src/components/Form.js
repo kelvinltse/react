@@ -7,7 +7,7 @@ const Form = ( {setInputText, setTodos, todos, inputText}) => { //doing this is 
     }
 
     const submitHandler = (e) => {
-        console.log("heey");
+        console.log("submit handled");
         e.preventDefault();
         setTodos([
             ...todos, {text: inputText, completed: false, id: Math.random() * 1000}
