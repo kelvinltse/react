@@ -3,6 +3,8 @@ import Todo from "./Todo";
 
 const TodoList = ( {todos, setTodos} ) => {
 
+    const [listView, setListView] = useState("All");
+
     return (
         
         <div className="todo-container">

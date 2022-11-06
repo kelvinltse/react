@@ -7,6 +7,7 @@ function App() {
 
   const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
+  //const [listView, setListView] = useState("All"); //pass down to todolist and form
 
   return (
     <div className="App">

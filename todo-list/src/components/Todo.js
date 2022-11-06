@@ -4,7 +4,13 @@ const Todo = ( {text, todo, todos, setTodos} ) => {
 
     const handleClick = () => {
         console.log("click handled");        
-        //setTodos(todos.filter( (el) ))
+        todos.forEach(element => {
+            if (element.id === todo.id) {
+                todo.completed = true; 
+            }
+        });
+        console.log(todos);
+        setTodos(todos);
     };
 
     const handleDelete = () => {

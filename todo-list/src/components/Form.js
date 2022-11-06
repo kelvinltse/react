@@ -17,6 +17,8 @@ const Form = ( {setInputText, setTodos, todos, inputText}) => { //doing this is 
         console.log("todos length " + todos.length);
     }
 
+    //add view handler and setListView
+
     return (
         <form onSubmit={submitHandler}>
             <input value={inputText} onChange={inputTextHandler} className="todo-input" />
