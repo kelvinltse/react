@@ -1,6 +1,6 @@
 import React from "react";
 
-const Form = ( {setInputText, setTodos, todos, inputText}) => { //doing this is the equivalent of passing props in and not forcing you to call props each time below
+const Form = ( {setInputText, setTodos, setListView, todos, inputText, listView}) => { //doing this is the equivalent of passing props in and not forcing you to call props each time below
 
     const inputTextHandler = (e) => {
         setInputText(e.target.value);
@@ -17,7 +17,10 @@ const Form = ( {setInputText, setTodos, todos, inputText}) => { //doing this is 
         console.log("todos length " + todos.length);
     }
 
-    //add view handler and setListView
+    const selectionHandler = (e) => {
+        setListView(e.target.value);
+        console.log(listView);
+    }
 
     return (
         <form onSubmit={submitHandler}>
@@ -26,10 +29,10 @@ const Form = ( {setInputText, setTodos, todos, inputText}) => { //doing this is 
                 <i className="fas fa-plus-square"></i>
             </button>
             <div className="select">
-                <select name="todos" className="filter-todo">
-                <option value="all">All</option>
-                <option value="completed">Completed</option>
-                <option value="uncompleted">Uncompleted</option>
+                <select name="todos" className="filter-todo" onChange={selectionHandler}>
+                    <option value="all">All</option>
+                    <option value="completed">Completed</option>
+                    <option value="uncompleted">Uncompleted</option>
                 </select>
             </div>
         </form>

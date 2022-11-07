@@ -3,7 +3,7 @@ import Todo from "./Todo";
 
 const TodoList = ( {todos, setTodos} ) => {
 
-    const [listView, setListView] = useState("All");
+    //only render todos that match completed state of list view
 
     return (
         
