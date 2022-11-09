@@ -14,9 +14,9 @@ function App() {
       <header>
         <h1>To-do List</h1>
       </header>
-      <Form inputText = {inputText} setInputText={setInputText} todos={todos} setTodos = {setTodos} setListView = {setListView} listView = {listView} />
-      <TodoList todos = {todos} setTodos={setTodos}/>
-      {(() => { 
+      <Form inputText = {inputText} setInputText = {setInputText} todos = {todos} setTodos = {setTodos} setListView = {setListView} listView = {listView} />
+      <TodoList todos = {todos} setTodos = {setTodos} listView = {listView}/>
+      {(() => { //self-invoking function for conditional rendering with switch
         switch(listView) {
           case "all":
             return <div>"all list view"</div>;

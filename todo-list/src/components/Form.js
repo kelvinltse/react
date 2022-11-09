@@ -2,19 +2,19 @@ import React from "react";
 
 const Form = ( {setInputText, setTodos, setListView, todos, inputText, listView}) => { //doing this is the equivalent of passing props in and not forcing you to call props each time below
 
+    //const filteredTodos = new Map(todos);
+
     const inputTextHandler = (e) => {
         setInputText(e.target.value);
     }
 
     const submitHandler = (e) => {
-        console.log("submit handled");
         e.preventDefault();
         setTodos([
             ...todos, {text: inputText, completed: false, id: Math.random() * 1000}
         ]);
         setInputText("");
         console.log(todos);
-        console.log("todos length " + todos.length);
     }
 
     const selectionHandler = (e) => {

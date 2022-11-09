@@ -2,14 +2,12 @@ import React from "react";
 
 const Todo = ( {text, todo, todos, setTodos} ) => {
 
-    const handleClick = () => {
-        console.log("click handled");        
+    const handleComplete = () => {      
         todos.forEach(element => {
             if (element.id === todo.id) {
                 todo.completed = true; 
             }
         });
-        console.log(todos);
         setTodos(todos);
     };
 
@@ -20,7 +18,7 @@ const Todo = ( {text, todo, todos, setTodos} ) => {
     return ( 
         <div className="todo"> 
             <li className="todo-item">{text}</li>
-            <button className="complete-btn" onClick={handleClick}>
+            <button className="complete-btn" onClick={handleComplete}>
                 <i className="fas fa-check"></i>
             </button>
             <button className="trash-btn" onClick={handleDelete}>
