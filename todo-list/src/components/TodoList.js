@@ -5,19 +5,21 @@ const TodoList = ( {todos, setTodos, listView} ) => {
 
     //only render todos that match completed state of list view
 
-    const filteredTodos = todos;
+    let filteredTodos = todos;
     switch(listView) {
         case "all":
           //return filteredTodos;
           break;
         case "completed":
-          filteredTodos.filter( todo => todo.completed === true);
+          filteredTodos = todos.filter( todo => todo.completed === true);
+          console.log(filteredTodos);
           break;
         case "uncompleted":
-            filteredTodos.filter( todo => todo.completed === false);
+          filteredTodos = todos.filter( todo => todo.completed === false);
+          console.log(filteredTodos);
           break;
         default:
-      };
+    };
 
     return (
         
