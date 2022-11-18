@@ -19,7 +19,7 @@ const TodoList = ( {todos, setTodos, listView} ) => {
           console.log(filteredTodos);
           break;
         default:
-    };
+    }; 
 
     return (
         
