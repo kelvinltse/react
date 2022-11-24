@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Form from './components/Form';
 import TodoList from './components/TodoList';
@@ -9,6 +9,31 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [listView, setListView] = useState("all"); //pass down to todolist and form
 
+  //use effect
+
+  useEffect(() => { //run once when app starts
+    getLocalTodos();
+  }, []);
+
+  useEffect(() => {
+    saveLocalTodos();
+  }, [todos]);
+
+  //save to local storage
+  const saveLocalTodos = () => {
+      localStorage.setItem("todos", JSON.stringify(todos));
+  } 
+
+  const getLocalTodos = () => { //state and local storage not persisting on refresh
+    if (localStorage.getItem("todos") === null) {
+      localStorage.setItem("todos", JSON.stringify([]));
+    } else {
+      //setTodos(JSON.parse(localStorage.getItem("todos")));
+      let localTodos = JSON.parse(localStorage.getItem("todos"));
+      setTodos(localTodos);
+    }
+  }
+
   return (
     <div className="App">
       <header>
@@ -16,21 +41,7 @@ function App() {
       </header>
       <Form inputText = {inputText} setInputText = {setInputText} todos = {todos} setTodos = {setTodos} setListView = {setListView} listView = {listView} />
       <TodoList todos = {todos} setTodos = {setTodos} listView = {listView}/>
-      {/* {(() => { //self-invoking function for conditional rendering with switch
-        switch(listView) {
-          case "all":
-            return <div>"all list view"</div>;
-            break;
-          case "completed":
-            return <div>"completed list view"</div>;
-            break;
-          case "uncompleted":
-            return <div>"uncompleted list view"</div>;
-            break;
-          default:
-            return null;
-        };
-      })()} */}
+    {/* self-invoking function for conditional rendering with switch     */}
     </div>
   );
 }
