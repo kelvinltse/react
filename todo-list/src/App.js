@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import './App.css';
 import Form from './components/Form';
 import TodoList from './components/TodoList';
@@ -21,18 +21,16 @@ function App() {
 
   //save to local storage
   const saveLocalTodos = () => {
-      localStorage.setItem("todos", JSON.stringify(todos));
-  } 
+      localStorage.setItem("todos", JSON.stringify(todos)); 
+  }; 
 
   const getLocalTodos = () => { //state and local storage not persisting on refresh
     if (localStorage.getItem("todos") === null) {
       localStorage.setItem("todos", JSON.stringify([]));
-    } else {
-      //setTodos(JSON.parse(localStorage.getItem("todos")));
-      let localTodos = JSON.parse(localStorage.getItem("todos"));
-      setTodos(localTodos);
+    } else { 
+      setTodos(JSON.parse(localStorage.getItem("todos")));
     }
-  }
+  };
 
   return (
     <div className="App">

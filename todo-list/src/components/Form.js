@@ -14,12 +14,10 @@ const Form = ( {setInputText, setTodos, setListView, todos, inputText, listView}
             ...todos, {text: inputText, completed: false, id: Math.random() * 1000}
         ]);
         setInputText("");
-        console.log(todos);
     }
 
     const selectionHandler = (e) => {
         setListView(e.target.value);
-        console.log(listView);
     }
 
     return (

@@ -12,11 +12,9 @@ const TodoList = ( {todos, setTodos, listView} ) => {
           break;
         case "completed":
           filteredTodos = todos.filter( todo => todo.completed === true);
-          console.log(filteredTodos);
           break;
         case "uncompleted":
           filteredTodos = todos.filter( todo => todo.completed === false);
-          console.log(filteredTodos);
           break;
         default:
     }; 
