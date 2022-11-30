@@ -11,21 +11,21 @@ function App() {
 
   //use effect
 
-  useEffect(() => { //run once when app starts
+  useEffect(() => { 
     getLocalTodos();
-  }, []);
+  }, []); //empty array means run once when app starts
 
   useEffect(() => {
     saveLocalTodos();
-  }, [todos]);
+  }, [todos]); //this runs when todos is updated
 
   //save to local storage
   const saveLocalTodos = () => {
       localStorage.setItem("todos", JSON.stringify(todos)); 
   }; 
 
-  const getLocalTodos = () => { //state and local storage not persisting on refresh
-    if (localStorage.getItem("todos") === null) {
+  const getLocalTodos = () => { 
+    if (localStorage.getItem("todos") === null) { //on first load
       localStorage.setItem("todos", JSON.stringify([]));
     } else { 
       setTodos(JSON.parse(localStorage.getItem("todos")));

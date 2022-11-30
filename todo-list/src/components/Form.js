@@ -2,8 +2,6 @@ import React from "react";
 
 const Form = ( {setInputText, setTodos, setListView, todos, inputText, listView}) => { //doing this is the equivalent of passing props in and not forcing you to call props each time below
 
-    //const filteredTodos = new Map(todos);
-
     const inputTextHandler = (e) => {
         setInputText(e.target.value);
     }
